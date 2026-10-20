@@ -10,7 +10,6 @@ import {
 
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import PersonOutlineIcon from "@mui/icons-material/Person2Outlined";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContextGlobal";
@@ -111,15 +110,6 @@ function Navbar() {
                       <ShoppingCartIcon />
                   </Badge>
               </IconButton>
-
-              {isAuthenticated && (
-                  <IconButton
-                      onClick={() => navigate("/wishlist")}
-                      sx={{ mr: 1 }}
-                  >
-                      <FavoriteBorderIcon />
-                  </IconButton>
-              )}
 
               {/* Authentication */}
               {!isAuthenticated ? (

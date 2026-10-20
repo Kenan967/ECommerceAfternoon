@@ -3,15 +3,14 @@ import { useParams } from "react-router-dom";
 import { Box, Button, Container, Grid, Typography } from "@mui/material";
 
 import { addToCart } from "../services/cartService";
-import { addToWishlist } from "../services/wishlistService";
 
 import api from "../services/api";
 import { useAuth } from "../context/AuthContextGlobal";
 
 function ProductDetailsPage() {
   const { id } = useParams();
-   const { user, isAuthenticated } = useAuth();
-   const userId = user?.userId;
+   const {user}=useAuth();
+   const userId=user.userId;
   const [product, setProduct] = useState(null);
 
   const [quantity, setQuantity] = useState(1);
@@ -114,24 +113,6 @@ function ProductDetailsPage() {
           >
             Add To Cart
           </Button>
-
-          {isAuthenticated && (
-            <Button
-              variant="outlined"
-              size="large"
-              sx={{ mt: 3, ml: 1 }}
-              onClick={async () => {
-                try {
-                  await addToWishlist(product.id);
-                  alert("Product added to wishlist!");
-                } catch (error) {
-                  alert(error.response?.data || "Could not add product to wishlist.");
-                }
-              }}
-            >
-              Add To Wishlist
-            </Button>
-          )}
         </Grid>
       </Grid>
     </Container>

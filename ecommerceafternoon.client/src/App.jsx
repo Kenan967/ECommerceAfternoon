@@ -10,7 +10,6 @@ import CartPage from "./pages/CartPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
-import WishlistPage from "./pages/WishlistPage";
 
 function App() {
   return (
@@ -28,15 +27,6 @@ function App() {
           element={
             <ProtectedRoute>
               <CartPage />
-            </ProtectedRoute>
-          }
-        />
-
-        <Route
-          path="/wishlist"
-          element={
-            <ProtectedRoute>
-              <WishlistPage />
             </ProtectedRoute>
           }
         />
